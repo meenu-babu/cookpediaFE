@@ -14,6 +14,7 @@ export class Home {
   allRecipes:any=[]
   constructor(private api:Api){}
 
+  //ngOnInit() is a angular hook,it excecuted once after the component initialised
   ngOnInit(){
     this.getAllRecipes()
   }
@@ -21,6 +22,7 @@ getAllRecipes(){
   this.api.getAllRecipesApi().subscribe((res:any)=>{
     console.log("All recipes in home page");
     console.log(res)
+    this.allRecipes=res.slice(0,6)
   })
 }
 
