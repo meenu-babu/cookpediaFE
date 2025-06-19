@@ -53,13 +53,14 @@
           type="text"
           placeholder="Search with Recipe Name"
           class="form-control w-50"
+          [(ngModel)]="searchKey"
         />
       </div>
       <div class="row my-5">
         <!-- bind all recipes here -->
         @if (allRecipes.length>0){
         <!-- each card  -->
-        @for (item of allRecipes; track $index) {
+        @for (item of allRecipes | search:searchKey; track $index) {
 
         <div class="col-lg-4">
           <div class="p-3">

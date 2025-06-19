@@ -2,10 +2,12 @@ import { Component } from '@angular/core';
 import { Api } from '../services/api';
 import { Header } from '../header/header';
 import { Footer } from '../footer/footer';
+import { SearchPipe } from '../pipes/search-pipe';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-recipe',
-  imports: [Header, Footer],
+  imports: [Header, Footer,SearchPipe,FormsModule],
   templateUrl: './recipe.html',
   styleUrl: './recipe.css',
 })
@@ -14,6 +16,8 @@ export class Recipe {
   allRecipesDummy: any = [];
   cuisineArray: any = [];
   mealsArray: any = [];
+searchKey:string=''
+
 
   constructor(private api: Api) {}
 
