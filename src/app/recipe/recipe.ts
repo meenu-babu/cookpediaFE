@@ -4,10 +4,11 @@ import { Header } from '../header/header';
 import { Footer } from '../footer/footer';
 import { SearchPipe } from '../pipes/search-pipe';
 import { FormsModule } from '@angular/forms';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @Component({
   selector: 'app-recipe',
-  imports: [Header, Footer,SearchPipe,FormsModule],
+  imports: [Header, Footer,SearchPipe,FormsModule, NgxPaginationModule],
   templateUrl: './recipe.html',
   styleUrl: './recipe.css',
 })
@@ -17,6 +18,8 @@ export class Recipe {
   cuisineArray: any = [];
   mealsArray: any = [];
 searchKey:string=''
+
+ p: number = 1;
 
 
   constructor(private api: Api) {}

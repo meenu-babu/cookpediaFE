@@ -12,6 +12,7 @@ export class SearchPipe implements PipeTransform {
     }
     else{
       result=allRecipes.filter((item:any)=>{
+        return 
         item.name.toLowerCase().includes(searchKey.toLowerCase())
 
       })
