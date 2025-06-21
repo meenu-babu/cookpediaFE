@@ -8,5 +8,17 @@ import { RouterLink } from '@angular/router';
   styleUrl: './header.css'
 })
 export class Header {
-
+isLoggedIn=false;
+loginUserName=""
+ngOnInit(){
+  if(sessionStorage.getItem('token')){
+    const userTemp:any=sessionStorage.getItem('user');
+    this.isLoggedIn=true;
+    this.loginUserName=JSON.parse(userTemp).username;
+  }
+  else{
+    this.isLoggedIn=false;
+    this.loginUserName=""
+  }
+}
 }

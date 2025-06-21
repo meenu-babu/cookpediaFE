@@ -1,10 +1,19 @@
 <div
-  style="height: 100vh; background-image: url('https://static.vecteezy.com/system/resources/thumbnails/033/027/755/small_2x/flat-lay-vegetables-on-white-background-food-and-diet-concept-ai-generated-free-photo.jpg'); background-size: cover;"
+  style="
+    height: 100vh;
+    background-image: url('https://static.vecteezy.com/system/resources/thumbnails/033/027/755/small_2x/flat-lay-vegetables-on-white-background-food-and-diet-concept-ai-generated-free-photo.jpg');
+    background-size: cover;
+  "
   class="container d-flex justify-content-center align-items-center flex-column"
 >
   <h1>Login</h1>
   <p>More than 100 plus Recipes from around the world</p>
-  <form style="width: 400px" class="shadow border rounded p-5 mt-5">
+  <form
+    style="width: 400px"
+    class="shadow border rounded p-5 mt-5"
+    [formGroup]="loginForm"
+    (ngSubmit)="loginUser()"
+  >
     <div class="mb-5 text-center">
       <h3><i class="fa-solid fa-graduation-cap"></i> Cookpedia</h3>
     </div>

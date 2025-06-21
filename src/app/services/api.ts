@@ -27,5 +27,10 @@ addTestimonyApi(reqBody:any){
 registerApi(reqBody:any){
   return this.http.post(`${this.server_url}/register`,reqBody)
 }
+
+//login user
+loginApi(reqBody:any){
+  return this.http.post(`${this.server_url}/login`,reqBody)
+}
 }
 
