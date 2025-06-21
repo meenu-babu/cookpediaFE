@@ -70,4 +70,8 @@ searchKey:string=''
     );
 
  }
+
+ getAllItems(){
+  this.allRecipes=this.allRecipesDummy;
+ }
 }
