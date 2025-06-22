@@ -5,6 +5,7 @@ import { Footer } from '../footer/footer';
 import { SearchPipe } from '../pipes/search-pipe';
 import { FormsModule } from '@angular/forms';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-recipe',
@@ -22,7 +23,7 @@ searchKey:string=''
  p: number = 1;
 
 
-  constructor(private api: Api) {}
+  constructor(private api: Api,private router:Router) {}
 
   //ngOnInit() is a angular hook,it excecuted once after the component initialised
   ngOnInit() {
@@ -73,5 +74,15 @@ searchKey:string=''
 
  getAllItems(){
   this.allRecipes=this.allRecipesDummy;
+ }
+
+ viewRecipe(id:any){
+ if(sessionStorage.getItem("token")){
+  this.router.navigateByUrl(`/recipe/${id}/view`)
+
+ }
+ else{
+  alert("Please login to explore more features!!!")
+ }
  }
 }

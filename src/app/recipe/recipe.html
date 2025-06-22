@@ -60,12 +60,11 @@
         <!-- bind all recipes here -->
         @if (allRecipes.length>0){
         <!-- each card  -->
-        @for (item of allRecipes | search:searchKey | paginate: { itemsPerPage:
-        12, currentPage: p }; track $index) {
+        @for (item of allRecipes | search:searchKey | paginate: { itemsPerPage:12, currentPage: p }; track $index) {
 
         <div class="col-lg-4">
           <div class="p-3">
-            <img [src]="item.image" class="card-img-top" alt="recipe image" />
+        <img [src]="item.image" class="card-img-top" alt="recipe image" (click)="viewRecipe(item._id)"/>
             <div class="card-body">
               <h5 class="card-title">{{item.name}}</h5>
             </div>

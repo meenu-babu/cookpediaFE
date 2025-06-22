@@ -63,9 +63,9 @@
         </button>
         <ul class="dropdown-menu">
           @if(isLoggedIn){
-            <li><a routerLink="/Profile" class="dropdown-item">Profile</a></li>
+            <li><a routerLink="/profile" class="dropdown-item">Profile</a></li>
             <li><a routerLink="/saved-recipe" class="dropdown-item">Recipe Collection</a></li>
-            <li><button  class="dropdown-item">Logout<i class="fa-solid fa-right-from-bracket ms-2"></i></button></li>
+            <li><button  class="dropdown-item" (click)="logoutUser()">Logout<i class="fa-solid fa-right-from-bracket ms-2"></i></button></li>
           }
           @else {
             <li><a routerLink="/login" class="dropdown-item">Login</a></li>
