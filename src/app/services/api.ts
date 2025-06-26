@@ -85,5 +85,31 @@ editUserApi(reqBody:any){
   return this.http.post(`${this.server_url}/user/edit`,reqBody,this.appendToken())
 }
 
+
+// getall users
+getAllUsersApi(){
+  return this.http.get(`${this.server_url}/all-users`,this.appendToken())
+}
+
+//get all downloads
+getAllDownloadsApi(){
+  return this.http.get(`${this.server_url}/all-downloads`,this.appendToken())
+}
+
+//get all feedbacks
+getAllFeedbackApi(){
+  return this.http.get(`${this.server_url}/all-feedbacks`,this.appendToken())
+}
+
+//update feedback status
+updateFeedbackStatusApi(feedbackId:any,status:string){
+  return this.http.get(`${this.server_url}/feedback/${feedbackId}/update?status=${status}`,this.appendToken())
+}
+
+
+//get all approved feedbacks
+getApprovedFeedbackApi(){
+  return this.http.get(`${this.server_url}/all-approved-feedback`)
+}
 }
 

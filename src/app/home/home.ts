@@ -12,11 +12,14 @@ import { Api } from '../services/api';
 export class Home {
 
   allRecipes:any=[]
+  allFeedbacks:any=[]
+item: any;
   constructor(private api:Api){}
 
   //ngOnInit() is a angular hook,it excecuted once after the component initialised
   ngOnInit(){
     this.getAllRecipes()
+    this.getAllFeedbacks()
   }
 getAllRecipes(){
   this.api.getAllRecipesApi().subscribe((res:any)=>{
@@ -27,4 +30,11 @@ getAllRecipes(){
 }
 
 
+getAllFeedbacks(){
+  this.api.getApprovedFeedbackApi().subscribe((res:any)=>{
+    console.log("All approved feedback")
+    console.log(res)
+    this.allFeedbacks=res;
+  })
+}
 }

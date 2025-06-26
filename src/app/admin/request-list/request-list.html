@@ -1,1 +1,59 @@
-<p>request-list works!</p>
+<div class="row">
+  <!-- side bar menu -->
+  <div class="col-lg-2">
+    <app-sidebar></app-sidebar>
+  </div>
+  <div class="col-lg-10">
+    <h1>All User Testimony Requests</h1>
+    <table class="table my-5 shadow">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>User Name</th>
+          <th>User Email</th>
+          <th>Message</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (item of allFeedback; track $index;let i=$index) {
+
+        <tr>
+          <td>{{i+1}}</td>
+          <td>{{item.name}}</td>
+          <td>{{item.email}}</td>
+          <td>{{item.message}}</td>
+          <td>
+            @if (item.status==='Pending') {
+            <div class="d-flex">
+              <button
+                class="btn btn-success"
+                (click)="updateFeedback(item._id,'Approved')"
+              >
+                <i class="fa-solid fa-check"></i>
+              </button>
+              <button
+                class="btn btn-danger ms-1"
+                (click)="updateFeedback(item._id,'Rejected')"
+              >
+                <i class="fa-solid fa-x"></i>
+              </button>
+            </div>
+            } @else if (item.status==='Approved') {
+              <button
+              class="btn btn-success">
+              Approved</button
+            >} @else if (item.status==='Rejected') {<button
+              class="btn btn-danger"
+            >
+              Rejected</button
+            >}
+          </td>
+        </tr>
+
+        }
+      </tbody>
+              
+    </table>
+  </div>
+</div>

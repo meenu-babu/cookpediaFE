@@ -43,6 +43,9 @@ export class Login {
           if (res.user.role === 'User') {
             this.router.navigateByUrl('/');
           }
+          else if(res.user.role==='Admin'){
+            this.router.navigateByUrl('/admin')
+          }
         },
         error: (reason: any) => {
           alert(reason.error);

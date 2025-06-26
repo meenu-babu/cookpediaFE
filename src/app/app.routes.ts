@@ -11,6 +11,12 @@ import { ViewRecipe } from './view-recipe/view-recipe';
 import { PageNotFound } from './page-not-found/page-not-found';
 
 export const routes: Routes = [
+
+// path for lazy loading
+{
+    path:'admin',loadChildren:()=>import('./admin/admin-module').then(m=>m.AdminModule)
+},
+
     // define path to load specific components
     {path:'',component:Home},
     {path:'about',component:About},

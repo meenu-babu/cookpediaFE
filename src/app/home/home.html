@@ -112,13 +112,11 @@
     <h1>Client Testimonials</h1>
     <marquee>
       <div class="d-flex my-5">
-        <div class="rounded border w-100 p-3 me-2">
-          <h5>Sean Cloyd</h5>
-          The error "CONERR,65,Unsupported protocol version: 2.5.0" indicates
-          that the Lightstreamer client library you are using is trying to
-          connect to a Lightstreamer server that is using an unsupported
-          protocol version. The client
-          <p style="white-space: normal; width: 100%; text-align: justify"></p>
+        @for (item of allFeedbacks; track $index) {}
+        <div class="rounded border w-25 p-3 me-2">
+          <h5>{{item.name}}</h5>
+          
+          <p style="white-space: normal; width: 100%; text-align: justify">{{item.message}}</p>
         </div>
       </div>
     </marquee>
