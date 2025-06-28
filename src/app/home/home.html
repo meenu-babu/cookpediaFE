@@ -112,12 +112,16 @@
     <h1>Client Testimonials</h1>
     <marquee>
       <div class="d-flex my-5">
-        @for (item of allFeedbacks; track $index) {}
-        <div class="rounded border w-25 p-3 me-2">
+        @for (item of allFeedbacks; track $index) {
+
+ <div class="rounded border w-25 p-3 me-2">
           <h5>{{item.name}}</h5>
           
           <p style="white-space: normal; width: 100%; text-align: justify">{{item.message}}</p>
         </div>
+
+        }
+       
       </div>
     </marquee>
         

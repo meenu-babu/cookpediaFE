@@ -111,5 +111,12 @@ updateFeedbackStatusApi(feedbackId:any,status:string){
 getApprovedFeedbackApi(){
   return this.http.get(`${this.server_url}/all-approved-feedback`)
 }
+
+// add recipe
+addRecipeApi(body:any){
+  return this.http.post(`${this.server_url}/add-recipe`,body,this.appendToken())
+}
+
+
 }
 

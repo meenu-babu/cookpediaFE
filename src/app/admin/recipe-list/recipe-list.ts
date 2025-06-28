@@ -9,6 +9,7 @@ import { Api } from '../../services/api';
 })
 export class RecipeList {
   allRecipes:any=[]
+  searchKey:string=''
   constructor(private api:Api){}
 ngOnInit(){
   this.getAllRecipes()
@@ -20,5 +21,5 @@ ngOnInit(){
       this.allRecipes=res;
     })
   }
-
+removeRecipe(id:any){}
 }
