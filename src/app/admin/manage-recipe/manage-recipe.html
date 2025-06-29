@@ -4,11 +4,20 @@
     <app-sidebar></app-sidebar>
   </div>
   <div class="col-lg-10">
-    <h1 class="text-center">Update Recipe Details</h1>
-    <h1 class="text-center">Add Recipe Details</h1>
+    @if (id) {
+    <h1 class="text-center mt-5">Update Recipe Details</h1>
+    }
+    @else {
+    <h1 class="text-center mt-5">Add Recipe Details</h1>
+    }
+
 
     <div class="container my-5 border text-center rounded p-5 shadow w-75">
-      <img width="100px" src="" alt="no image" />
+      @if (recipeDetails.image) {
+      <img width="100px" [src]="recipeDetails.image" alt="no image" />
+
+      }
+
       <div class="row mt-3">
         <div class="col-6">
           <div class="mb-2">
@@ -44,16 +53,16 @@
                 +
               </button>
             </div>
-@for (item of ingrediants; track $index) {
-<div class="d-flex align-items-center mb-2">
+            @for (item of ingrediants; track $index) {
+            <div class="d-flex align-items-center mb-2">
               <input placeholder="Ingredients" type="text" class="form-control" [value]="item" />
               <button class="btn ms-2">
                 <i class="fa-solid fa-trash text-danger"></i>
               </button>
             </div>
 
-}
-            
+            }
+
           </div>
         </div>
         <div class="col-6">
@@ -83,77 +92,41 @@
               <textarea #instructionInput placeholder="Recipe Cooking Instructions" class="form-control"></textarea>
               <button class="btn btn-primary ms-2" (click)="addInstructions(instructionInput)">+</button>
             </div>
-                @for (item of instructions; track $index) {
- <div class="d-flex align-items-center mb-2">
-              <input placeholder="Instructions" type="text" class="form-control"  [value]="item"/>
+            @for (item of instructions; track $index) {
+            <div class="d-flex align-items-center mb-2">
+              <input placeholder="Instructions" type="text" class="form-control" [value]="item" />
               <button class="btn ms-2" (click)="removeInstructions(item)">
                 <i class="fa-solid fa-trash text-danger"></i>
               </button>
             </div>
-                }
-           
+            }
+
           </div>
         </div>
       </div>
       <div class="mb-3">
         <div class="border rounded p-2">
-        
+
           <div class="d-flex flex-wrap my-3">
-            <div class="border rounded p-1 me-2">
-              <label for="Dinner">
-                <input type="checkbox" name="Dinner" id="Dinner" />
-                Dinner
+            @for (item of mealTypeArray; track $index) {
+
+            <div class="border rounded p-1 me-3">
+              <label for="Dinner" [for]="item">
+                <input type="checkbox" (change)="mealTypeSelect($event)" [name]="item" [id]="item" />
+                {{item}}
               </label>
             </div>
-            <div class="border rounded p-1 me-2">
-              <label for="Lunch">
-                <input type="checkbox" name="Lunch" id="Lunch" />
-                Lunch
-              </label>
-            </div>
-            <div class="border rounded p-1 me-2">
-              <label for="Snack">
-                <input type="checkbox" name="Snack" id="Snack" />
-                Snack
-              </label>
-            </div>
-            <div class="border rounded p-1 me-2">
-              <label for="Dessert">
-                <input type="checkbox" name="Dessert" id="Dessert" />
-                Dessert
-              </label>
-            </div>
-            <div class="border rounded p-1 me-2">
-              <label for="Appetizer">
-                <input type="checkbox" name="Appetizer" id="Appetizer" />
-                Appetizer
-              </label>
-            </div>
-            <div class="border rounded p-1 me-2">
-              <label for="Breakfast">
-                <input type="checkbox" name="Breakfast" id="Breakfast" />
-                Breakfast
-              </label>
-            </div>
-            <div class="border rounded p-1 me-2">
-              <label for="Beverage">
-                <input type="checkbox" name="Beverage" id="Beverage" />
-                Beverage
-              </label>
-            </div>
-            <div class="border rounded p-1 me-2">
-              <label for="Salad">
-                <input type="checkbox" name="Salad" id="Salad" />
-                Salad
-              </label>
-            </div>
+
+            }
           </div>
         </div>
       </div>
-      <button class="btn btn-primary">Update Recipe</button>
-
+      @if (id) {
+      <button class="btn btn-primary" (click)="updateRecipe()">Update Recipe</button>
+      }
+      @else {
       <button class="btn btn-primary" (click)="AddRecipe()">Add Recipe</button>
+      }
     </div>
-        
   </div>
 </div>

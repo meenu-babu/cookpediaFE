@@ -8,18 +8,23 @@ import { Api } from '../../services/api';
   styleUrl: './recipe-list.css'
 })
 export class RecipeList {
-  allRecipes:any=[]
-  searchKey:string=''
-  constructor(private api:Api){}
-ngOnInit(){
-  this.getAllRecipes()
-}
+  allRecipes: any = []
+  searchKey: string = ''
+  constructor(private api: Api) { }
+  ngOnInit() {
+    this.getAllRecipes()
+  }
 
-  getAllRecipes(){
-    this.api.getAllRecipesApi().subscribe((res:any)=>{
+  getAllRecipes() {
+    this.api.getAllRecipesApi().subscribe((res: any) => {
       console.log(res);
-      this.allRecipes=res;
+      this.allRecipes = res;
     })
   }
-removeRecipe(id:any){}
+  removeRecipe(id: any) {
+    this.api.deleteRecipeApi(id).subscribe((res: any) => {
+      this.getAllRecipes()
+    })
+
+  }
 }
