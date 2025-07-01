@@ -9,12 +9,13 @@ import { Profile } from './profile/profile';
 import { SavedRecipe } from './saved-recipe/saved-recipe';
 import { ViewRecipe } from './view-recipe/view-recipe';
 import { PageNotFound } from './page-not-found/page-not-found';
+import { authGuard } from './guards/auth-guard';
 
 export const routes: Routes = [
 
 // path for lazy loading
 {
-    path:'admin',loadChildren:()=>import('./admin/admin-module').then(m=>m.AdminModule)
+    path:'admin',canActivate:[authGuard],loadChildren:()=>import('./admin/admin-module').then(m=>m.AdminModule)
 },
 
     // define path to load specific components

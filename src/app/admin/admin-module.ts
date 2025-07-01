@@ -11,7 +11,11 @@ import { ManageRecipe } from './manage-recipe/manage-recipe';
 import { Sidebar } from './sidebar/sidebar';
 import { SearchPipe } from '../pipes/search-pipe';
 import { FormsModule } from '@angular/forms';
-
+import {MatCardModule} from '@angular/material/card';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import * as Highcharts from 'highcharts';
+import { HighchartsChartComponent } from 'highcharts-angular';
 
 @NgModule({
   declarations: [
@@ -25,7 +29,7 @@ import { FormsModule } from '@angular/forms';
   ],
   imports: [
     CommonModule,
-    AdminRoutingModule,SearchPipe,FormsModule
+    AdminRoutingModule,SearchPipe,FormsModule,MatCardModule,MatDatepickerModule,MatNativeDateModule,HighchartsChartComponent
   ]
 })
 export class AdminModule { }
